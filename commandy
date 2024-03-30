@@ -1,0 +1,5 @@
+docker run --name=todo-db -e POSTGRES_PASSWORD='qwerty' -p 5432:5432 -d --rm postgres    //run database in container
+
+migrate create -ext sql -dir ./schema -seq init    // create migration
+
+migrate -path ./schema -database 'postgres://postgres:qwerty@localhost:5432/postgres?sslmode=disable' up
